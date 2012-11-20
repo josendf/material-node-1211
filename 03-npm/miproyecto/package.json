@@ -1,0 +1,34 @@
+{
+  "name": "miproyecto",
+  "version": "0.0.1",
+  "description": "Mi proyecto",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test/"
+  },
+ "engines": {
+    "node": ">= 0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/micuenta/miproyecto.git"
+  },
+  "keywords": [
+    "pruebas", "ejemplos"
+  ],
+  "author": {
+    "name": "Nombre Titular",
+    "email": "titular@example.com"
+  },
+  "homepage": "http://misitio/miproyecto",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "LICENSE-MIT"
+    }
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
