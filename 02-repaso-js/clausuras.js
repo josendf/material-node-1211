@@ -17,6 +17,8 @@
   http://en.wikipedia.org/wiki/Closure_(computer_science)
 */
 
+console.log("-- 1 -----------------------");
+
 function funcionA() {
 
   var x = 10;
@@ -29,8 +31,74 @@ function funcionA() {
   };
 }
 
-console.log("-- 1 -----------------------");
-
 var suma10 = funcionA();
 
 console.log("resultado: %d", suma10(5));
+
+
+/*
+  Las clausuras nos permiten simular propiedades privadas.
+*/
+
+console.log("-- 2 -----------------------");
+
+function ClaseA() {
+
+  // Una propiedad pública
+  this.publica = "Es publica";
+
+  // Una propiedad privada
+  var privada = "Es privada";
+
+  this.setPrivada = function(valor) {
+    privada = valor;
+  }
+
+  this.getPrivada = function() {
+    return privada;
+  }
+}
+
+var objA = new ClaseA();
+
+console.log("pública: %s", objA.publica);
+
+// Aquí nos dirá 'undefined'
+console.log("privada: %s", objA.privada);
+
+// Manipulamos la propiedad privada mediante las funciones de acceso
+console.log("privada: %s", objA.getPrivada());
+
+objA.setPrivada("Nuevo valor");
+
+console.log("privada: %s", objA.getPrivada());
+
+/*
+  Las clausuras sirven también para establecer el contexto
+  en las funciones callback y timers.
+*/
+
+console.log("-- 3 -----------------------");
+
+function imprimeDespues(obj, prop, segundos) {
+
+  var valor = obj[prop];
+
+  return setTimeout(function() {
+
+    // Accedemos a la variable 'valor' dentro de la clausura
+    console.log(valor);
+
+  }, segundos * 1000);
+}
+
+
+var objB = {
+  "propiedad": "Una propiedad"
+};
+
+var segs = 2;
+
+console.log("Imprimirá en %d segs...", segs);
+
+imprimeDespues(objB, "propiedad", segs);
